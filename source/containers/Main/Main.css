@@ -1,0 +1,7 @@
+@import 'styles/Variables';
+
+.page-wrap--blur {
+  @media $md-and-lg {
+    filter: blur(4px);
+  }  
+}

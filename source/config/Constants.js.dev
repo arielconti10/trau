@@ -1,0 +1,54 @@
+const apiData = {
+  protocol: 'https',
+  host: 'yazawa-dev.tenzen.com.br',
+  version: 'v3',
+};
+
+export const API = {
+  baseUrl: `${apiData.protocol}://${apiData.host}/${apiData.version}`,
+};
+
+export const apiCache = {
+  baseUrl: `${apiData.protocol}://cache-${apiData.host}/${apiData.version}`,
+};
+
+export const IMAGE_CDN_HOST = 'https://i.lua.net';
+
+export const webBuyerUrl = {
+  protocol: 'http',
+  host: 'loja.lua.net:8080',
+};
+
+export const storage = {
+  storagePrefix: 'webbuyer',
+};
+
+export const shareImageFallback = 'https://s3.amazonaws.com/lua-public/share.png';
+export const productImageFallback = 'https://s3.amazonaws.com/lua-public/placeholder.jpg';
+
+export const checkout = {
+  cardBrands: 'visa,mastercard',
+  buttonText: 'Continuar',
+  paymentButtonText: 'Finalizar',
+  customerData: 'false',
+  defaultInstallment: '1',
+  uiColor: '$mountain-meadow',
+  encryptionKey: 'ek_test_vZWObteHnBFTLFGNLtYcQlG7LBnWF3',
+  postbackUrl: 'https://xzw6x6p7te.execute-api.us-east-2.amazonaws.com/Development/api/transaction/postback',
+};
+
+export const facebook = {
+  id: '1999225750303575'
+};
+
+export const luaAddress = {
+  customerAddressStreet: 'Avenida Brigadeiro Faria Lima',
+  customerAddressNeighborhood: 'Jardim Paulistano',
+  customerAddressZipcode: '01451905',
+  customerAddressStreetNumber: '2092',
+  customerAddressComplementary: '10 andar. Torre A',
+  customerAddressState: 'SP',
+  customerAddressCity: 'São Paulo',
+  customerPhoneDdd: '61',
+  customerPhoneNumber: '999999999',
+};

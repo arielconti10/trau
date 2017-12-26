@@ -1,0 +1,54 @@
+@import "styles/Variables";
+@import "styles/Mixins";
+
+.footer {
+  display: block;
+
+  margin: 90px 0 30px 0;
+}
+
+.owner-name {
+  display: block;
+
+  margin: 30px auto;
+
+  text-align: center;
+}
+
+.owner-name-link {
+  text-decoration: none;
+  letter-spacing: -.05em;
+
+  color: $emperor;
+
+  font-family: $lato;
+font-weight: 300;
+  font-size: 1.6em;
+
+  &:hover {
+    text-decoration: none;
+    color: rgba($emperor, .8);
+  }
+}
+
+
+.lua-signature-wrapper {
+  margin: 90px 0 0;
+  display: block;
+}
+
+.lua-signature-link {
+  background: top center no-repeat;
+  @mixin retina ../../assets/imgs/reseller-button;
+  width: 40px;
+  height: 17px;
+  display: block;
+  margin: 90px auto 0;
+  overflow: hidden;
+  text-indent: -9999px;
+  transition: opacity ease .2s;
+
+  &:hover {
+    opacity: .75;
+  }
+}

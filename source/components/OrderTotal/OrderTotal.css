@@ -1,0 +1,70 @@
+@import 'styles/Variables';
+
+.wrapper {
+  margin: 30px 0;
+  background-color: $white;
+  padding: 15px 30px;
+  border: 1px solid $gallery;
+  border-radius: 5px;
+  box-shadow: 0px 2px 4px rgba($silver, .5);
+
+  &::after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+
+.title {
+  color: $butterfly-bush;
+  line-height: 2.3;
+  font-family: $lato;
+  font-weight: bold;
+}
+
+.price {
+  float: right;
+  font-family: $lato;
+  font-weight: 400;
+  text-align: right;
+}
+
+.full-amount {
+  color: $mountain-meadow;
+  font-size: 18px;
+
+  @media $sm-and-below {
+    font-size: 16px;
+  }
+}
+
+
+.split-amount {
+  color: $emperor;
+
+  span {
+    color: $mountain-meadow;
+  }
+
+  @media $sm-and-below {
+    font-size: 12px;
+  }
+}
+
+.small-style {
+  .split-amount {
+    font-size: 12px;
+  }
+}
+
+@media $tn-only {
+
+  .wrapper {
+    margin: 15px 0;
+    padding: 15px;
+  }
+
+  .price {
+    width: calc(100% - 70px);
+  }
+}

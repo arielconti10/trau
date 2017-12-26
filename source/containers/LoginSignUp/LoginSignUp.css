@@ -1,0 +1,80 @@
+@import "styles/Variables";
+@import "styles/Mixins.css";
+
+.wrapper {
+  max-width: 940px;
+  margin: 0 auto;
+  margin-top: 100px;
+}
+
+.title {
+  font-family: $lato;
+  font-size: 26px;
+  font-weight: 100;
+  color: $emperor;
+  text-align: center;
+}
+
+.subtitle {
+  display: block;
+
+  width: 100%;
+  margin: 45px 0 25px 0;
+  /*padding-right: 130px; essa linha tava quebrando outras páginas*/
+
+  text-align: center;
+
+  color: $emperor;
+
+  font-family: $lato;
+  font-size: 1.05em;
+  font-weight: 100;
+}
+
+.col-right {
+  text-align: center;
+  padding-left: 65px;
+  padding-right: 20px;
+
+  @media $md-and-below {
+    padding-left: 45px;
+    padding-right: 5px;
+  }
+
+  @media $sm-and-below {
+    padding: 0;
+  }
+}
+
+.col-left {
+  padding-right: 65px;
+  padding-left: 20px;
+  position: relative;
+
+  &::after {
+    content: '';
+    border-left: 1px solid #C0C0C0;
+    height: 290px;
+    position: absolute;
+    right: -15px;
+    top: 51px;
+  }
+
+  @media $md-and-below {
+    padding-right: 45px;
+    padding-left: 5px;
+  }
+
+  @media $sm-and-below {
+    padding: 0;
+
+    &::after {
+      display: none;
+    }
+  }
+}
+
+.btn-fb {
+  max-width: 331px;
+  margin: 50px auto;
+}

@@ -1,0 +1,41 @@
+@import "styles/Variables";
+@import "styles/Mixins";
+
+$basket-empty-path: ../../assets/imgs/basket-empty;
+$basket-empty: $(basket-empty-path).png;
+
+.wrapper-basket {
+  width: 242px;
+  margin: 0 auto;
+
+  @media (max-width: 767px) {
+    width: 248px;
+    padding: 0;
+  }
+}
+
+.icon-basket {
+  position: relative;
+  width: 213px;
+  height: 213px;
+  margin: 55px auto 35px auto ;
+  border: 3px solid $alto;
+  border-radius: 50%;
+
+  &::before {
+    content: '';
+    position: relative;
+    top: 38px;
+    left: 35px;
+    display: block;
+    width: width($basket-empty);
+    height: height($basket-empty);
+
+    @mixin retina $basket-empty-path;
+  }
+}
+
+.title-basket {
+  font-size: 1.7em;
+  color: $emperor;
+}

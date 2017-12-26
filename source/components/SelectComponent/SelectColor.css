@@ -1,0 +1,17 @@
+.react-selectize {
+    width: 40% !important;
+}
+
+.dropdown-menu {
+    width: 100% !important
+}
+
+.example {
+    margin: 40px 20px;
+}
+
+.label {
+    display: block;
+    font-family: Roboto, sans-serif;
+    padding: 12px 0 4px 2px
+}

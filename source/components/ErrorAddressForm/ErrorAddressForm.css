@@ -1,0 +1,9 @@
+@import 'styles/Variables';
+
+.error {
+    font-size: 13px;
+    color: $red;
+    line-height: 100%;
+    display: block;
+    margin-bottom: 5px;
+}

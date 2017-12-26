@@ -1,0 +1,118 @@
+@import "styles/Variables";
+
+.withHeader {
+    margin-top: 6px;
+}
+
+.notHeader {
+    margin-top: 0;
+}
+
+.box-option {
+    float: left;
+    position: relative;
+    text-align: center;
+    margin-right: 15px;
+    min-width: 55px;
+}
+
+.background-option {
+    background: $gallery;
+    border: 1px solid $gallery;
+    box-shadow: 0 2px 4px 0 rgba(196, 196, 196, 0.50);
+    border-radius: 5px;
+    margin-right: 10px;
+    padding: 10px 5px 10px 5px;
+    width: 100%;
+    position: relative;
+    color: $emperor;
+    min-height: 40px;
+}
+
+.box-option-title {
+    letter-spacing: 0.11px;
+    color: $emperor;
+    font-size: 11px;
+    font-weight: 400;
+}
+
+
+/* SELECT */
+
+.box-option-dropdown {
+    opacity: 0;
+    cursor: pointer;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 40px;
+    width: 100%;
+    display: none;
+}
+
+.select-wrapper {
+  display: inline-block;
+  margin-top: 12px;
+
+  @media $sm-and-below {
+    display: block;
+  }
+}
+
+
+/* ModificaÃ§Ãµes para opÃ§Ã£o com interaÃ§Ã£o */
+
+.box-option.is-interactive {
+
+    .background-option {
+        padding: 12px 25px 10px 5px;
+        background: $white;
+        font-size: 14px;
+
+        &:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 20px;
+            height: 100%;
+            display: block;
+            border-left: 1px solid $gallery;
+            @mixin retina ../../../assets/imgs/ico-angle-down-gray;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+    }
+
+    .box-option-dropdown {
+        display: block;
+    }
+}
+
+@media $tn-only {
+
+    .box-option {
+        margin-right: 10px;
+
+        &.medium {
+            width: 50px;
+        }
+    }
+
+    .box-option.is-interactive {
+
+        .background-option {
+            padding-top: 9px;
+            padding-bottom: 9px;
+            padding-right: 16px;
+
+            &:after {
+                width: 16px;
+            }
+        }
+    }
+
+    .background-option {
+        min-height: 38px;
+    }
+}

@@ -1,0 +1,235 @@
+const babelPolyfill = require('babel-polyfill');
+const path = require('path');
+const Webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const packageJson = require('./package.json');
+
+const vendorPackages = Object.keys(packageJson.dependencies);
+const isDev = process.env.NODE_ENV !== 'production';
+console.log('Rodando Webpack em modo:', process.env.NODE_ENV, !isDev);
+
+
+// CssModules extractor intance
+const extractCssModules = new ExtractTextPlugin({
+  filename: 'assets/css/modules.[name].[contenthash].css',
+  allChunks: true,
+  ignoreOrder: true,
+});
+
+// Global css extractor intance
+const extractCssGlobal = new ExtractTextPlugin({
+  filename: 'assets/css/global.[name].[contenthash].css',
+  allChunks: true,
+});
+
+module.exports = {
+  entry: {
+    bundle: [
+      'babel-polyfill',
+      // entry file
+      './source/Index.jsx',
+    ],
+    vendor: vendorPackages,
+  },
+  output: {
+    path: path.join(__dirname, 'build'),
+    filename: '[name].js',
+
+    // Set assets base url
+    // install.sh has an example on how
+    // to use ASSETS_PATH
+    publicPath: process.env.ASSETS_PATH || '/',
+  },
+  module: {
+    rules: [
+
+      // babel-loader transpile JSX & ES6+ syntax
+      // to old browser's js sintax
+      {
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              babelrc: false,
+              presets: [
+                [
+                  'env', {
+                    modules: false,
+                    targets: {
+                      ie: 9,
+                    },
+                    useBuiltIns: true,
+                    debug: false,
+                    loose: true,
+                  },
+                ],
+                'react',
+              ],
+              plugins: [
+                'react-css-modules',
+              ],
+            },
+          },
+        ],
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+      },
+
+      // jsx lint "pre-loader"
+      {
+        loader: 'eslint-loader',
+        enforce: 'pre',
+        test: /\.(jsx)$/,
+        options: {
+          plugins: [
+            'react',
+          ],
+          extends: ['eslint:all', 'plugin:react/all'],
+          // failOnWarning: true,
+          // failOnError: true
+        },
+        exclude: /node_modules/,
+      },
+
+      // Loader to process & extract CSS to a file on disk
+      // This should process css files under ./source/(components|containers) folder
+      {
+        use: extractCssModules.extract({
+          fallback: 'style-loader',
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                modules: true,
+                importLoaders: 1,
+                sourceMap: true,
+                localIdentName: '[path]___[name]__[local]___[hash:base64:5]',
+              },
+            },
+            {
+              loader: 'postcss-loader',
+              options: {
+                plugins: [
+                  /* eslint-disable global-require */
+                  // require('postcss-easysprites')({
+                  //   imagePath: 'build/assets/imgs',
+                  //   spritePath: 'build/assets/imgs',
+                  // }),
+                  require('postcss-import')({
+                    path: 'source/assets/',
+                  }),
+                  require('precss'),
+                  // require('postcss-cssnext'),
+                  require('rucksack-css'),
+                  require('autoprefixer'),
+                  require('postcss-assets'),
+                  /* eslint-enable */
+                ],
+              },
+            },
+          ],
+        }),
+        exclude: [
+          path.join(__dirname, 'node_modules'),
+          path.join(__dirname, 'source/assets/styles'),
+        ],
+        test: /\.css$/,
+      },
+
+      // Loader to process glocal styles
+      // This should process files under ./source/styles
+      {
+        use: extractCssGlobal.extract({
+          fallback: 'style-loader',
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                modules: false,
+                importLoaders: 1,
+                sourceMap: true,
+              },
+            },
+            {
+              loader: 'postcss-loader',
+              options: {
+                plugins: [
+                  /* eslint-disable global-require */
+                  // require('postcss-easysprites')({
+                  //   imagePath: 'build/assets/imgs',
+                  //   spritePath: 'build/assets/imgs',
+                  // }),
+                  require('postcss-import'),
+                  require('precss'),
+                  // require('postcss-cssnext'),
+                  require('rucksack-css'),
+                  require('autoprefixer'),
+                  require('postcss-assets'),
+                  /* eslint-enable */
+                ],
+              },
+            },
+          ],
+        }),
+        test: /\.css$/,
+        exclude: [
+          path.join(__dirname, 'source/components'),
+          path.join(__dirname, 'source/containers'),
+        ],
+      },
+      {
+        test: /\.(eot|svg|ttf|woff|woff2)$/,
+        loader: 'file-loader?name=assets/fonts/[name].[ext]',
+        exclude: /node_modules/,
+      },
+      {
+        test: /\.(png|jpg|gif)$/,
+        loader: 'url-loader?limit=5000&hash=sha512&digest=hex&name=assets/imgs/[name].[ext]!img-loader',
+        exclude: /node_modules/,
+      },
+    ],
+  },
+  resolve: {
+    extensions: ['.js', '.json', '.jsx'],
+    alias: {
+      Config: path.resolve(__dirname, 'source/config/'),
+      Components: path.resolve(__dirname, 'source/components/'),
+      Containers: path.resolve(__dirname, 'source/containers/'),
+      Actions: path.resolve(__dirname, 'source/actions/'),
+      Reducers: path.resolve(__dirname, 'source/reducers/'),
+      Helpers: path.resolve(__dirname, 'source/helpers/'),
+      Middlewares: path.resolve(__dirname, 'source/middlewares/'),
+    },
+  },
+  plugins: [
+    // prints more readable module names in the browser console on HMR updates
+    new Webpack.NamedModulesPlugin(),
+
+    new Webpack.optimize.CommonsChunkPlugin({
+      names: ['vendor', 'manifest'],
+    }),
+
+    // Generate the dist index.html file
+    new HtmlWebpackPlugin({
+      template: './source/index.html',
+    }),
+
+    // Pass NODE_ENV to react env
+    // When this variable is set to production react improve some things :)
+    new Webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+      },
+    }),
+    extractCssModules,
+    extractCssGlobal,
+  ],
+
+  // just fix build error
+  node: {
+    fs: 'empty',
+  },
+
+  devtool: "source-map"
+};

@@ -1,0 +1,58 @@
+/**
+ * CORES
+ */
+
+$butterfly-bush: #5E539F;
+$dove-gray: #686868;
+$endeavour: #00579F;
+$emperor: #505050;
+$gallery: #EBEBEB;
+$gigas: #493C8E;
+$gigas-light: rgba($gigas, .5);
+$logan: #A8A3CA;
+$red: rgb(255, 0, 0);
+$silver: #C5C5C5;
+$silver-dark: #aaa;
+$tundora: rgba(78, 78, 78, .4);
+$mountain-meadow: #1AB996;
+$alto: #DCDCDC;
+$white: #FFFFFF;
+$blue-bell: #9F98C3;
+$red: #ff0000;
+$concrete: #F3F3F3;
+$black: #000;
+$puerto-rico: #3BC4A7;
+$shamrock: #2BC0A1;
+$victoria: #534797;
+$alto: #DBDBDB;
+$wild-sand: #F4F4F4;
+
+
+/**
+ * TIPOGRAFIA
+ */
+
+$lato: 'Lato', sans-serif;
+
+$global-letter-spacing: -0.17px;
+
+
+/**
+ * BREAKPOINTS
+ * Reference: https://v4-alpha.getbootstrap.com/layout/overview/#responsive-breakpoints
+ */
+
+$tn-only: only screen and (max-width: 374px);
+$xs-only: only screen and (min-width: 375px) and (max-width: 575px);
+$sm-only: only screen and (min-width: 576px) and (max-width: 767px);
+$md-only: only screen and (min-width: 768px) and (max-width: 992px);
+$lg-only: only screen and (min-width: 1200px);
+
+$xs-and-below: only screen and (max-width: 575px);
+$sm-and-below: only screen and (max-width: 767px);
+$md-and-below: only screen and (max-width: 992px);
+
+$sm-and-md: only screen and (min-width: 576px) and (max-width: 992px);
+$md-and-lg: only screen and (min-width: 768px);
+
+$ipad-pro: only screen and (max-width: 1366px);

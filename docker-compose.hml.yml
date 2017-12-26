@@ -1,0 +1,36 @@
+version: "2"
+
+services:
+  prerender:
+    image: luadevspace/prerender
+    container_name: prerender.tenzen.com.br
+    restart: always
+    external_links:
+      - proxy
+    environment:
+      - VIRTUAL_HOST=prerender.tenzen.com.br
+    network_mode: bridge
+
+  taurus:
+    image: luadevspace/taurus:hml
+    container_name: STAR.tenzen.com.br
+    restart: always
+    links:
+      - prerender
+    external_links:
+      - proxy
+    environment:
+      - VIRTUAL_HOST=*.tenzen.com.br
+      - VIRTUAL_PORT=80
+    network_mode: bridge
+
+  thumbor:
+    image: apsl/thumbor:latest
+    container_name: i.tenzen.com.br
+    restart: always
+    external_links:
+      - proxy
+    environment:
+      - VIRTUAL_HOST=i.tenzen.com.br
+      - VIRTUAL_PORT=80
+    network_mode: bridge

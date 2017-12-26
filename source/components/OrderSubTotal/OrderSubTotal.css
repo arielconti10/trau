@@ -1,0 +1,15 @@
+@import 'styles/Variables';
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  font-size: 14px;
+  line-height: 1;
+  color: $emperor;
+  padding: 30px 25px;
+  background: $wild-sand;
+  border: 1px solid $gallery;
+  border-radius: 5px;
+  font-weight: 400;
+  justify-content: space-between;
+}

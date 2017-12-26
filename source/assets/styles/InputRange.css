@@ -1,0 +1,93 @@
+@import "./Variables";
+.input-range__slider {
+    position: absolute;
+    top: 50%;
+    display: block;
+    width: .9rem;
+    height: .9rem;
+    margin-top: -0.5rem;
+    margin-left: -0.5rem;
+    cursor: pointer;
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+    border: 1px solid $mountain-meadow;
+    border-radius: 100%;
+    outline: none;
+    background: $mountain-meadow;
+    appearance: none;
+}
+.input-range__slider:active {
+    transform: scale(1.3);
+}
+.input-range__slider:focus {
+    box-shadow: 0 0 0 5px rgba(63, 81, 181, 0.2);
+}
+.input-range--disabled .input-range__slider {
+    transform: none;
+    border: 1px solid #cccccc;
+    background: #cccccc;
+    box-shadow: none;
+}
+.input-range__slider-container {
+    transition: left 0.3s ease-out;
+}
+.input-range__label {
+    transform: translateZ(0);
+    white-space: nowrap;
+    color: $emperor;
+    letter-spacing: -0.030em;
+    font-size: 0.7em;
+    font-family: $lato;
+font-weight: 300;
+}
+.input-range__label--min,
+.input-range__label--max {
+    position: absolute;
+    bottom: 1.4rem;
+}
+.input-range__label--min {
+    left: 0;
+    color: rgba($emperor, .5)
+}
+.input-range__label--max {
+    right: 0;
+}
+.input-range__label--value {
+    position: absolute;
+    bottom: -1.8rem;
+    display: none;
+}
+.input-range__label-container {
+    position: relative;
+    /*left: -50%;*/
+}
+.input-range__label--max .input-range__label-container {
+    color: $mountain-meadow;
+}
+.input-range__track {
+    position: relative;
+    display: block;
+    height: 0.15rem;
+    cursor: pointer;
+    transition: left 0.3s ease-out, width 0.3s ease-out;
+    border-radius: 0.3rem;
+    background: rgba(0, 0, 0, .26);
+}
+.input-range--disabled .input-range__track {
+    background: rgba(0, 0, 0, .26);
+}
+.input-range__track--background {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    left: 0;
+    margin-top: -0.15rem;
+}
+.input-range__track--active {
+    background: $mountain-meadow;
+}
+.input-range {
+    position: relative;
+    width: 100%;
+    height: 1rem;
+    margin: 35px 0 5px 0;
+}

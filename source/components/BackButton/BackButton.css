@@ -1,0 +1,47 @@
+@import 'styles/Mixins';
+@import 'styles/Variables';
+
+$arrow-back-green-path: ../../assets/imgs/arrow-back-green;
+$arrow-back-green: $(arrow-back-green-path).png;
+$arrow-back-path: ../../assets/imgs/arrow-back;
+$arrow-back: $(arrow-back-path).png;
+
+.back {
+  position: relative;
+
+  cursor: pointer;
+
+  display: block;
+
+  margin-bottom: 25px;
+  padding-left: calc(width($arrow-back-green) + 10px);
+
+  color: $butterfly-bush;
+  border: none;
+  background: none;
+  outline: none;
+
+  font-family: $lato;
+  font-weight: 400;
+  font-size: .9em;
+
+  &:hover {
+    text-decoration: none;
+
+    color: $mountain-meadow;
+  }
+
+  &::before {
+    position: absolute;
+    left: 0;
+
+    display: block;
+
+    width: width($arrow-back-green);
+    height: height($arrow-back-green);
+
+    content: '';
+
+    @mixin retina $arrow-back-green-path;
+  }
+}

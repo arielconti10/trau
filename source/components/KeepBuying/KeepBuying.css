@@ -1,0 +1,33 @@
+@import 'styles/Variables';
+@import 'styles/Mixins';
+
+$plus-path: ../../assets/imgs/plus;
+$plus: $(plus-path).png;
+
+.keep-buying {
+  font-size: 15px;
+  line-height: 1;
+  color: $gigas;
+  font-weight: 400;
+  padding: 20px 0 20px calc(width($plus) + 10px);
+  position: relative;
+  transition: color ease .1s;
+  display: inline-block;
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    display: block;
+    width: width($plus);
+    height: height($plus);
+    @mixin retina $(plus-path);
+  }
+
+  &:hover {
+    color: $gigas-light;
+    text-decoration: none;
+  }
+}

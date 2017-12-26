@@ -1,0 +1,60 @@
+@import "styles/Variables";
+
+.wrapper {
+    position: relative;
+
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+
+    border-bottom: 1px solid rgba($emperor, .2);
+}
+
+.icon {
+  position: absolute;
+  top: 0;
+  right: -4.55px;
+
+  display: block;
+
+  width: 20px;
+  height: 18px;
+
+  cursor: pointer;
+  text-indent: -9999px;
+
+  border: none;
+  outline: none;
+  background: no-repeat center;
+  background-color: transparent;
+  transition: opacity 300ms;
+
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+.icon--default {
+  content:'';
+}
+
+.icon--arrow {
+  @mixin retina ../../assets/imgs/chevron;
+}
+
+.icon--close {
+  @mixin retina ../../assets/imgs/close-green;
+}
+
+.title {
+  display: block;
+
+  margin-bottom: 15px;
+
+  letter-spacing: -.034em;
+
+  color: $emperor;
+
+  font-family: $lato;
+font-weight: 400;
+  font-size: .85em;
+}

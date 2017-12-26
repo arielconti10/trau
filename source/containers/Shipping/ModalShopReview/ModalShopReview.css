@@ -1,0 +1,145 @@
+@import "styles/Variables";
+@import "styles/Mixins.css";
+
+$ico-close-path: ../../../assets/imgs/close;
+$ico-close: $(ico-close-path).png;
+
+.wrapper {
+  position: relative;
+}
+
+.inner-wrapper {}
+
+.title {
+  font-family: $lato;
+  font-size: 26px;
+  font-weight: 100;
+  color: $emperor;
+  text-align: center;
+  margin: 0;
+  padding-top: 50px;
+  padding-bottom: 26px;
+}
+
+.products {
+  padding: 0 20px;
+}
+
+.subtitle {
+  font-size: 14px;
+  display: block;
+  margin: 12px 0;
+}
+
+.product-row {
+  border-top: 1px solid #DBDBDB;
+  border-bottom: 1px solid #DBDBDB;
+  padding: 10px 0;
+  &:first-child {
+    border-bottom: 0;
+  }
+
+  &:last-child {
+    border-top: 0;
+  }
+  &::after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+
+.product-name {
+  font-size: 12px;
+}
+
+.product-brand {
+  font-size: 11px;
+}
+
+.price, .product-price {
+  font-size: 12px;
+  display: block;
+  margin-top: 10px;
+}
+
+.price-highlight {
+  color: $mountain-meadow;
+}
+
+.delivery {
+  margin: 30px 0;
+  padding: 0 20px;
+}
+
+.btn-default {
+  margin: 25px auto 0;
+  padding: 16px 55px;
+  display: block;
+  cursor: pointer;
+  letter-spacing: -0.17px;
+
+  color: $white;
+  border: 1px solid $gallery;
+  border-radius: 5px;
+  outline: none;
+  background: $victoria;
+  box-shadow: 0 2px 4px 0 rgba(196, 196, 196, 0.50);
+
+  font-family: $lato;
+  font-size: 1em;
+  font-weight: 300;
+
+  transition: background 300ms;
+
+  &:hover {
+    background-color: $mountain-meadow;
+  }
+
+  &:disabled {
+    opacity: .4;
+    cursor: default;
+
+    &:hover {
+      background-color: $victoria;
+    }
+  }
+}
+
+.modal-close {
+  width: 38px;
+  height: 38px;
+  display: block;
+  position: absolute;
+  right: -32px;
+  top: -32px;
+  border: 0;
+  border-radius: 100%;
+  cursor: pointer;
+  @mixin retina $ico-close-path;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: $white;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.28);
+}
+
+@media $xs-and-below {
+
+  .inner-wrapper {
+    -webkit-overflow-scrolling: touch;
+    overflow-y: auto;
+    height: calc(100vh - 150px);
+  }
+}
+
+@media $tn-only {
+
+  .title {
+    padding: 0 0 10px;
+    font-size: 22px;
+  }
+
+  .delivery {
+    padding: 0;
+  }
+}

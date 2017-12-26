@@ -1,0 +1,140 @@
+@import "styles/Mixins.css";
+@import "styles/Variables.css";
+
+.text-center {
+    text-align: center;
+}
+
+.icon-check-success {
+    height: 104px;
+    white-space: nowrap;
+    background-repeat: no-repeat;
+    background-position: center center;
+    margin: 10px;
+    display: block;
+    @mixin retina ../../assets/imgs/check-success;
+}
+
+.icon-check-warning {
+    height: 104px;
+    white-space: nowrap;
+    background-repeat: no-repeat;
+    background-position: center center;
+    margin: 10px;
+    display: block;
+    @mixin retina ../../assets/imgs/check-warning;
+}
+
+.icon-check-error {
+    height: 104px;
+    white-space: nowrap;
+    background-repeat: no-repeat;
+    background-position: center center;
+    margin: 10px;
+    display: block;
+    @mixin retina ../../assets/imgs/check-error;
+}
+
+.linesplitter {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    display: block;
+    content: '';
+    background: #EAEAEA;
+    height: 2px;
+    left: 0px;
+    right: 0px;
+}
+
+.text_one {
+    font-size: 30px;
+    color: $emperor;
+    letter-spacing: -0.53px;
+    margin: 15px;
+}
+
+.text_two {
+    font-size: 20px;
+    color: rgba(72, 59, 142, 0.50);
+    letter-spacing: -0.29px;
+    margin: 15px;
+}
+
+.text_tree {
+    font-size: 20px;
+    color: $emperor;
+    letter-spacing: -0.29px;
+    margin: 15px;
+}
+
+.text_four {
+    font-size: 16px;
+    color: $dove-gray;
+    letter-spacing: -0.17px;
+    margin: 15px;
+}
+
+.values {
+    display: inline-block;
+    text-align: justify;
+}
+
+.text-values {
+    font-size: 16px;
+    color: #C3C3C3;
+    letter-spacing: -0.17px;
+}
+
+.space-values {
+    margin-top: 15px;
+}
+
+@media $sm-and-below {
+
+    .text_one {
+        font-size: 20px;
+        line-height: 120%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .text_two,
+    .text_tree {
+        font-size: 16px;
+        line-height: 120%;
+    }
+
+    .text_four {
+        font-size: 14px;
+        line-height: 120%;
+    }
+
+    .linesplitter {
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+}
+
+@media $xs-and-below {
+
+    .text_one {
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 140%;
+    }
+
+    .text_two,
+    .text_tree {
+        font-size: 14px;
+        line-height: 140%;
+    }
+
+    .icon-check-success,
+    .icon-check-warning,
+    .icon-check-error {
+        width: 52px;
+        height: 52px;
+        background-size: 52px 52px;
+        margin: 0 auto;
+    }
+}

@@ -1,0 +1,209 @@
+@import "styles/Variables";
+@import "styles/Mixins";
+
+$ico-close-path: ../../assets/imgs/close;
+$ico-close: $(ico-close-path).png;
+
+/* Wrapper */
+
+.cart-item-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1px solid $alto;
+  padding-bottom: 30px;
+  margin: 0 15px 30px;
+  color: $emperor;
+}
+
+.column {
+
+  &.column-center {
+    align-self: center;
+  }
+}
+
+.column-inner-wrapper {
+  flex-direction: row;
+  display: flex;
+  align-items: flex-start;
+}
+
+.column-label {
+  font-size: 12px;
+  line-height: 1;
+  font-weight: 400;
+  color: $emperor;
+  width: 100%;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  display: block;
+}
+
+/* Thumbnail */
+
+.product-thumbnail-wrapper {
+  position: relative;
+  display: block;
+  width: 95px;
+  height: 95px;
+  line-height: 95px;
+  margin-right: 25px;
+  box-shadow: 0 0 1px 0 rgba(73,60,142,0.10), 0 5px 10px 0 rgba(73,60,142,0.10);
+}
+
+.product-image-wrapper {
+  overflow: hidden;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  width: 95px;
+  height: 95px;
+}
+
+.product-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.close-button {
+  @mixin retina $ico-close-path;
+  background-position: center 11px;
+  background-size: width($ico-close) auto;
+  background-repeat: no-repeat;
+  background-color: $white;
+  height: 38px;
+  width: 38px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.28);
+  position: absolute;
+  left: -12px;
+  top: -12px;
+  border-radius: 100%;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+/* Informações */
+
+.product-info-wrapper {
+  width: 270px;
+}
+
+.product-title {
+  font-size: 20px;
+  line-height: 120%;
+  margin-bottom: 10px;
+  font-weight: 400;
+  color: $emperor;
+  display: block;
+}
+
+.product-brand {
+  display: block;
+  font-size: 14px;
+  line-height: 1;
+  font-weight: 100;
+  color: $emperor;
+  text-transform: uppercase;
+}
+
+
+/* Variações & Quantidade */
+
+.variation-value {
+  height: 40px;
+  line-height: 40px;
+  min-width: 40px;
+  text-align: center;
+  background: #f00;
+  margin-top: 12px;
+  border-radius: 5px;
+  margin-right: 10px;
+  padding: 0 10px;
+  background: $gallery;
+  box-shadow: 0 2px 4px 0 rgba(196, 196, 196, 0.50);
+}
+
+/* Valor Unitário */
+
+.unitary-price-wrapper {
+  font-size: 14px;
+  font-weight: 400;
+  align-self: center;
+}
+
+.unitary-price-value {
+  color: $mountain-meadow;
+  padding-left: 5px;
+}
+
+/* Total */
+
+.item-total-price {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1;
+  margin-top: 22px;
+}
+
+@media $md-only {
+
+  .product-info-wrapper {
+    width: 150px;
+  }
+}
+
+@media $sm-and-below {
+
+  .cart-item-wrapper {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: flex-start;
+  }
+
+  .column {
+    margin-bottom: 15px;
+    padding-left: 40px;
+
+    &.column-center {
+      align-self: flex-start;
+    }
+  }
+
+  .product-title {
+    font-size: 14px;
+    line-height: 120%;
+  }
+
+  .product-brand {
+    font-size: 12px;
+  }
+
+  .product-info-wrapper {
+    width: auto;
+  }
+
+  .item-total-price {
+    margin-top: 0;
+  }
+
+  .close-button {
+    top: 0;
+    left: -40px;
+    background-size: 14px auto;
+    width: 32px;
+    height: 32px;
+  }
+}
+
+@media $tn-only {
+
+  .product-thumbnail-wrapper,
+  .product-image-wrapper {
+    width: 60px;
+    height: 60px;
+  }
+}

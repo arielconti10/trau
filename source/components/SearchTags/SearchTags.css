@@ -1,0 +1,35 @@
+@import "styles/Variables";
+$close-icon-path: ../../assets/imgs/close-purple-thin;
+$close-icon: $(close-path).png;
+
+.tag {
+  display: inline-block;
+  vertical-align: middle;
+  text-transform: capitalize;
+  color: $gigas;
+  background-color: #f6f5f9;
+  overflow: hidden;
+  padding: 0 5px 0 13px;
+  font-size: 13px;
+  border-radius: 80px;
+  line-height: 35px;
+  margin-right: 5px;
+}
+
+.tag-button {
+  color: $gigas;
+  border-radius: 80px;
+  background-color: #DBD9E8;
+  border-radius: 100%;
+  border: 0;
+  width: 26px;
+  height: 26px;
+  line-height: 23px;
+  margin-left: 10px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: auto;
+  text-indent: -999px;
+  @mixin retina $close-icon-path;
+  cursor: pointer;
+}

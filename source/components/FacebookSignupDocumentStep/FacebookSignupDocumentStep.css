@@ -1,0 +1,57 @@
+@import "styles/Variables";
+@import "styles/Mixins";
+
+.title {
+  font-family: $lato;
+  font-size: 26px;
+  font-weight: 100;
+  color: $emperor;
+  text-align: center;
+}
+
+.fsd-wrapper {
+  width: 500px;
+  max-width: calc(100vw - 40px);
+  margin: 0 auto;
+}
+
+.fsd-form {
+  width: 330px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.fsd-description {
+  line-height: 140%;
+  font-size: 14px;
+  text-align: center;
+}
+
+.errors {
+  display: block;
+  width: 100%;
+  text-align: center;
+  color: $red;
+  font-size: 15px;
+  padding-bottom: 10px;
+}
+
+.btn-continue {
+  padding: 16px 55px;
+  background: $victoria;
+  border: 1px solid $gallery;
+  box-shadow: 0 2px 4px 0 rgba(196, 196, 196, 0.50);
+  border-radius: 5px;
+  font-size: 16px;
+  color: $white;
+  letter-spacing: -0.17px;
+  font-family: $lato;
+  margin: 0 auto;
+  width: 150px;
+  display: block;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $mountain-meadow;
+  }
+}

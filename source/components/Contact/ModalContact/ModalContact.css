@@ -1,0 +1,123 @@
+@import "styles/Mixins.css";
+@import "styles/Variables.css";
+
+$ico-letter-path: ../../../assets/imgs/ico-letter;
+$ico-letter: $(ico-letter-path).png;
+
+$ico-phone-path: ../../../assets/imgs/ico-phone;
+$ico-phone: $(ico-phone-path).png;
+
+$ico-close-path: ../../../assets/imgs/close;
+$ico-close: $(ico-close-path).png;
+
+.modal-wraper {
+    text-align: center;
+}
+
+.seller-image {
+    background: #D8D8D8;
+    border: 3px solid $white;
+    box-shadow: 0 5px 4px 0 $tundora;
+    border-radius: 100%;
+    width: 140px;
+    height: 140px;
+    display: block;
+    margin: -60px auto 0;
+}
+
+.seller-name,
+.seller-location {
+    display: block;
+    text-align: center;
+}
+
+.seller-name {
+    font-size: 30px;
+    line-height: 1;
+    margin: 40px 0 10px;
+    color: $emperor;
+}
+
+.seller-location {
+    color: $gigas;
+    opacity: .5;
+    font-size: 16px;
+    line-height: 1;
+    margin: 10px 0 40px;
+}
+
+.seller-phone,
+.seller-email {
+    font-size: 14px;
+    line-height: 1;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 40px 10px 40px;
+    font-weight: 400;
+
+    a {
+        color: $dove-gray;
+        text-decoration: none;
+
+        &:before {
+            content: '';
+            display: inline-block;
+            vertical-align: middle;
+            background-position: left center;
+            background-repeat: no-repeat;
+            margin-right: 10px;
+        }
+
+        &:hover {
+            color: $mountain-meadow;
+            text-decoration: none;
+        }
+    }
+}
+
+.seller-phone {
+    text-align: right;
+}
+
+.seller-email {
+    text-align: left;
+}
+
+.seller-phone a:before {
+    @mixin retina $ico-phone-path;
+    height: height($ico-phone);
+    width: width($ico-phone);
+}
+
+.seller-email a:before {
+    @mixin retina $ico-letter-path;
+    height: height($ico-letter);
+    width: width($ico-letter);
+}
+
+.modal-close {
+    width: 38px;
+    height: 38px;
+    display: block;
+    position: absolute;
+    right: -12px;
+    top: -12px;
+    border: 0;
+    border-radius: 100%;
+    cursor: pointer;
+    @mixin retina $ico-close-path;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: $white;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.28);
+}
+
+@media $xs-and-below {
+
+    .seller-phone,
+    .seller-email {
+        display: block;
+        text-align: center;
+        margin: 10px 0;
+    }
+}

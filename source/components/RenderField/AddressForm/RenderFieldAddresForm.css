@@ -1,0 +1,56 @@
+@import "../../../assets/styles/Variables";
+@import "../../../assets/styles/Mixins.css";
+.input {
+  width: 100%;
+  height: 50px;
+  margin-bottom: 20px;
+  padding: 12px 20px;
+
+  text-align: left;
+  letter-spacing: -0.17px;
+
+  color: $gigas;
+  border: 1px solid $gallery;
+  border-radius: 5px;
+  outline: none;
+  background: $white;
+  box-shadow: 0 2px 4px 0 rgba(196, 196, 196, 0.50);
+
+  font-family: $lato;
+  font-size: .8em;
+  font-weight: 300;
+
+  &[disabled] {
+    background: #fafafa;
+    cursor: not-allowed;
+  }
+}
+
+.input::placeholder {
+    display: none;
+    color: $gigas;
+    font-size: 14px;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.errors {
+  display: block;
+  width: 100%;
+  text-align: center;
+  color: $red;
+  font-size: 15px;
+  padding-bottom: 10px;
+}
+
+
+@media (max-width: 540px) {
+
+    .input {
+        width: 100% !important;
+    }
+}

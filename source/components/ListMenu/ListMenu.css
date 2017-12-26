@@ -1,0 +1,101 @@
+@import "styles/Variables";
+@import "styles/Mixins.css";
+
+.wrapper {
+  display: block;
+}
+
+.hamburger {}
+.responsive {
+  .item {
+    margin-left: 30px;
+  }
+}
+
+.list {
+  display: block;
+  padding: 0;
+
+  &.list--disabled {
+    display: none;
+  }
+}
+
+.item {
+  display: block;
+  margin-bottom: 25px;
+
+  .link--faded,
+  .link {
+    cursor: pointer;
+    outline: none;
+    text-decoration: none;
+    color: $white;
+    display: block;
+    font-family: $lato;
+    font-weight: 500;
+    font-size: 16px;
+    font-weight: 300;
+    background: transparent;
+    border: none;
+    margin: 0;
+    padding: 0;
+
+    &:hover {
+      color: $mountain-meadow;
+    }
+  }
+
+  .link--faded {
+    opacity: .5;
+  }
+}
+
+.hamburger-button {
+  display: block;
+  outline: none;
+
+  width: 20px;
+  height: 95%;
+  margin: 0 auto;
+
+  text-indent: -9999px;
+
+  border: none;
+  background: transparent no-repeat center;
+  background-size: 20px auto;
+  @mixin retina ../../assets/imgs/hamburger;
+}
+
+.inline {
+  .list {
+    justify-content: center;
+  }
+
+  .item {
+    padding: 0 10px;
+
+    font-family: $lato;
+font-weight: 400;
+    font-size: .8em;
+  }
+}
+
+
+@media (min-width: 992px) {
+  /* */
+}
+
+@media (max-width: 992px) {
+  .responsive {
+    .item {
+      margin-left: 0;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .list {
+    justify-content: center;
+  }
+}

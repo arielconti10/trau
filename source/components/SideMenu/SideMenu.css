@@ -1,0 +1,92 @@
+@import "styles/Variables";
+@import "styles/Mixins.css";
+
+
+:global {
+  .menu-item--small, .menu-item--small[style] {
+    display: none !important;
+  }
+
+  .bm-menu-wrap, .bm-menu-wrap[style] {
+    top: 0;
+    z-index: 100 !important;
+  }
+
+  .bm-burger-button, .bm-burger-button[style] {
+    display: none !important;
+    position: absolute;
+    width: 20px;
+    height: 10px;
+    top: 10px;
+    right: 20px;
+    z-index: 99 !important;
+  }
+
+  /* Color/shape of burger icon bars */
+  .bm-burger-bars {
+    background: $gigas;
+  }
+
+  /* Position and sizing of clickable cross button */
+  .bm-cross-button {
+    height: 24px;
+    width: 24px;
+  }
+
+  /* Color/shape of close button cross */
+  .bm-cross {
+    background: #bdc3c7;
+  }
+
+  /* General sidebar styles */
+  .bm-menu {
+    background: $gigas;
+    padding: 2.5em 1.5em 0;
+    font-size: 1.15em;
+    box-shadow: inset 5px 0 10px 0 rgba(0,0,0,0.50);
+  }
+
+  /* Morph shape necessary with bubble or elastic */
+  .bm-morph-shape {
+    fill: #373a47;
+  }
+
+  /* Wrapper for item list */
+  .bm-item-list {
+    color: #b8b7ad;
+    padding: 0.8em;
+  }
+
+  /* Styling of overlay */
+  .bm-overlay, .bm-overlay[style] {
+    background: rgba(0, 0, 0, 0.5) !important;
+    top: 0;
+    z-index: 100 !important;
+  }
+
+}
+
+.side-menu__avatar {
+  border-radius: 100%;
+  width: 100px;
+  height: 100px;
+  display: block;
+  border: 3px solid $white;
+  margin-bottom: 15px;
+  box-shadow: 0 5px 4px 0 rgba(78,78,78,0.40);
+}
+.side-menu__user-name {
+  display: block;
+  font-size: 18px;
+  line-height: 1;
+  margin: 0 0 5px;
+  color: $white;
+}
+
+.side-menu__user-email {
+  display: block;
+  color: $white;
+  font-size: 12px;
+  line-height: 1;
+  margin-bottom: 35px;
+}

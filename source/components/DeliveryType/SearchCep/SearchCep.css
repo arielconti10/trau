@@ -1,0 +1,58 @@
+@import "styles/Variables";
+@import "styles/Mixins.css";
+
+.form-cep {
+  display: inline-block;
+  margin-left: -30px;
+
+  @media $sm-and-below {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+}
+
+.input {
+  width: 137px;
+  height: 50px;
+  padding: 12px 20px;
+
+  text-align: left;
+  letter-spacing: -0.17px;
+
+  color: $gigas;
+  border: 1px solid $gallery;
+  border-radius: 5px;
+  outline: none;
+  background: $white;
+  box-shadow: 0 2px 4px 0 rgba(196, 196, 196, 0.50);
+
+  font-family: $lato;
+  font-size: 1em;
+  font-weight: 300;
+}
+
+.input-cep {
+  margin-right: 10px;
+}
+
+.bt-calc {
+  background-color: transparent;
+  color: $gigas;
+  font-size: 14px;
+  border: 0;
+  cursor: pointer;
+  height: 50px;
+  transition: color ease .25s;
+
+  &:hover {
+    color: $logan;
+  }
+}
+
+.zipcode-error-message {
+  display: block;
+  padding: 10px 10px 0 30px;
+  line-height: 140%;
+  color: $red;
+  font-size: 12px;
+}

@@ -1,0 +1,84 @@
+@import 'styles/Mixins';
+@import 'styles/Variables';
+
+.container {
+  height: 260px;
+  text-align: center;
+  box-sizing: border-box;
+  display: inline-block;
+  width: 100%;
+  line-height: 260px;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: -10px;
+}
+
+@media $md-and-below {
+  .container {
+    margin-top: 70px;
+  }
+}
+
+.image {
+  position: absolute;
+  width: calc(100% + 50px);
+  height: calc(100% + 50px);
+  left: -25px;
+  top: -25px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.image_random {
+  /*-webkit-filter: blur(20px);
+  -moz-filter: blur(15px);
+  -o-filter: blur(15px);
+  -ms-filter: blur(15px);
+  filter: blur(15px);*/
+}
+
+.wrapper {
+  vertical-align: middle;
+  display: inline-block;
+  line-height: 32px;
+  color: $white;
+  position: relative;
+  z-index: 10;
+}
+
+.title {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.categorie {
+  font-size: 42px;
+}
+
+.brand-image-wrapper {
+  border: 3px solid $white;
+  width: 110px;
+  height: 110px;
+  overflow: hidden;
+  border-radius: 50%;
+  display: inline-block;
+  background-color: $white;
+}
+
+.brand-image {
+  border-radius: 50%;
+  border: 1px solid #D8D8D8;
+  padding: 4px;
+  overflow: hidden;
+}
+
+.card--shadow{
+  @mixin retina ../../assets/imgs/card-shadow;
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%
+}

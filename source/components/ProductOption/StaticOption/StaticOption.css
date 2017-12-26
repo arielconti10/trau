@@ -1,0 +1,182 @@
+@import "styles/Variables";
+
+.withHeader {
+    margin-top: 6px;
+}
+
+.notHeader {
+    margin-top: 18px;
+}
+
+.box-option {
+    float: left;
+    position: relative;
+    text-align: center;
+    margin-right: 15px;
+
+    &.small {
+        width: 50px;
+    }
+
+    &.medium {
+        width: 65px;
+    }
+}
+
+.background-option {
+    background: $gallery;
+    border: 1px solid $gallery;
+    box-shadow: 0 2px 4px 0 rgba(196, 196, 196, 0.50);
+    border-radius: 5px;
+    margin-right: 10px;
+    padding: 10px 5px 10px 5px;
+    width: 100%;
+    position: relative;
+    color: $emperor;
+    min-height: 40px;
+
+    i {
+        width: 16px;
+        height: 16px;
+        display: block;
+        border-radius: 100%;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        border: 1px solid $gallery;
+    }
+}
+
+.box-option-title {
+    letter-spacing: 0.11px;
+    color: $emperor;
+    font-size: 11px;
+    font-weight: 400;
+}
+
+
+/* SELECT */
+
+.box-option-dropdown {
+    opacity: 0;
+    cursor: pointer;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 40px;
+    width: 100%;
+    display: none;
+}
+
+/* COR */
+
+.box-option-color-dropdown {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: calc(100% - 20px);
+    background: $white;
+    transform: translateY(-50%);
+    margin-top: 9px;
+    overflow: hidden;
+    height: 40px;
+    border: 1px solid $gallery;
+
+    &:hover {
+        border-radius: 5px;
+        height: auto;
+    }
+}
+
+.box-option-color-item {
+    display: block;
+    height: 40px;
+    width: 100%;
+    border: 0;
+    background: $white;
+    position: relative;
+    font-size: 0;
+    text-indent: -9999px;
+    overflow: hidden;
+    cursor: pointer;
+
+    &:hover {
+        background: $gallery;
+    }
+
+    &:after {
+        content: '';
+        width: 16px;
+        height: 16px;
+        display: block;
+        border-radius: 100%;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        box-shadow: 0 0px 1px 1px rgba(196, 196, 196, 0.25)
+    }
+
+    &[data-cor="amarelo"]:after,
+    &[data-cor="yellow"]:after {
+        background: yellow;
+    }
+
+    &[data-cor="azul"]:after,
+    &[data-cor="blue"]:after {
+        background: blue;
+    }
+
+    &[data-cor="red"]:after,
+    &[data-cor="vermelho"]:after {
+        background: red;
+    }
+}
+
+.box-option.is-interactive {
+
+    .background-option {
+        padding: 10px 20px 10px 0;
+        background: $white;
+
+        &:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 20px;
+            height: 100%;
+            display: block;
+            border-left: 1px solid $gallery;
+            @mixin retina ../../../assets/imgs/ico-angle-down-gray;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+    }
+
+    .box-option-color-dropdown {
+
+    }
+
+    .box-option-dropdown {
+        display: block;
+    }
+}
+
+@media $tn-only {
+
+    .box-option {
+        font-size: 12px;
+        margin-right: 7.5px;
+
+        &.small {
+            width: 40px;
+        }
+    }
+
+    .background-option {
+        min-height: 35px;
+    }
+}

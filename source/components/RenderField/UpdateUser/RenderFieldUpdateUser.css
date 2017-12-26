@@ -1,0 +1,130 @@
+@import "../../../assets/styles/Variables";
+@import "../../../assets/styles/Mixins.css";
+
+.input-wrapper {
+    display: inline-block;
+    vertical-align: middle;
+    width: calc(100% - 125px);
+    position: relative;
+}
+
+.input {
+    width: 100%;
+    padding: 12px 20px;
+    text-align: left;
+    background: $white;
+    border: 1px solid $gallery;
+    font-size: 14px;
+    color: $gigas;
+    letter-spacing: -0.17px;
+    font-family: $lato;
+    font-size: 14px;
+    color: $dove-gray;
+    box-shadow: 0 2px 4px 0 rgba(196, 196, 196, 0.50);
+    max-width: 200px;
+    border-radius: 5px;
+}
+
+.input-md {
+    width: 135px;
+    padding: 12px 20px;
+    text-align: left;
+    background: $white;
+    border: 0px solid $white;
+    font-size: 14px;
+    color: $gigas;
+    letter-spacing: -0.17px;
+    font-family: $lato;
+    font-weight: 400;
+    font-size: 14px;
+    color: $dove-gray;
+    letter-spacing: -0.17px;
+}
+
+.input-sm {
+    width: 75px;
+    padding: 12px 20px;
+    text-align: left;
+    background: $white;
+    border: 0px solid $white;
+    font-size: 14px;
+    color: $gigas;
+    letter-spacing: -0.17px;
+    font-family: $lato;
+    font-weight: 400;
+    font-size: 14px;
+    color: $dove-gray;
+    letter-spacing: -0.17px;
+}
+
+.errors {
+  display: block;
+  width: 100%;
+  text-align: left;
+  color: $red;
+  font-size: 13px;
+  padding-bottom: 10px;
+  top: 100%;
+  left: 0;
+  z-index: 1;
+  position: absolute;
+  transform: translateY(-50%);
+}
+
+
+@media (max-width: 992px) {
+    .profile {
+        height: 90px;
+        .img {
+            float: left;
+            width: 90px;
+            height: 90px;
+            margin-top: 12px;
+            margin-right: 20px;
+            border: 3px solid $white;
+            border-radius: 100%;
+            box-shadow: 0px 5px 30px $tundora;
+        }
+        .text-title {
+            padding: 48px 95px 0px 0px !important
+        }
+    }
+    .box {
+        margin-top: 25px;
+        padding-left: 20px;
+    }
+    .input {
+        width: 404px;
+    }
+    .input-md {
+        width: 250px;
+    }
+    .input-sm {
+        width: 100px;
+    }
+}
+
+@media (max-width: 520px) {
+    .input {
+        width: 260px;
+    }
+    .input-md {
+        width: 260px;
+    }
+    .input-sm {
+        width: 260px;
+    }
+}
+
+@media $xs-and-below {
+
+    .input-wrapper {
+        width: 100%;
+        display: block;
+    }
+
+    .input {
+        width: 100%;
+        max-width: 100%;
+    }
+}

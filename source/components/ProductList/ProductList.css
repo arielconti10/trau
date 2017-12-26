@@ -1,0 +1,30 @@
+@import "styles/Variables";
+
+.list {
+  margin: 0;
+
+  .item {
+    padding-bottom: 15px;
+
+    list-style: none;
+  }
+
+  @media $md-and-lg {
+    &.list--nosidebar {
+      padding-left: 0 !important;
+    }
+  }
+
+}
+
+@media (min-width: 768px) {
+  .list {
+    padding-left: 0;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  .list {
+    padding-left: 0 !important;
+  }
+}

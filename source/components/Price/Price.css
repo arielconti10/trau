@@ -1,0 +1,36 @@
+@import "styles/Variables";
+
+.wrapper {}
+
+.price-from {
+  display: block;
+
+  color: $emperor;
+
+  font-size: .7em;
+
+  .price {
+    color: $gigas;
+  }
+}
+.price-to {
+  display: block;
+
+  color: $mountain-meadow;
+
+  font-family: $lato;
+  font-weight: 500;
+  font-size: 0.9em;
+}
+
+.price-default {}
+
+.price-large {
+  .price-from {
+    font-size: 1.6em;
+  }
+
+  .price-to {
+    font-size: 1.6em;
+  }
+}

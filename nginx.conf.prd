@@ -1,0 +1,74 @@
+upstream prerenderserver {
+  server prerender:3000;
+}
+##
+# You should look at the following URL's in order to grasp a solid understanding
+# of Nginx configuration files in order to fully unleash the power of Nginx.
+# http://wiki.nginx.org/Pitfalls
+# http://wiki.nginx.org/QuickStart
+# http://wiki.nginx.org/Configuration
+#
+# Generally, you will want to move this file somewhere, and start with a clean
+# file but keep this around for reference. Or just disable in sites-enabled.
+#
+# Please see /usr/share/doc/nginx-doc/examples/ for more detailed examples.
+##
+
+# Default server configuration
+#
+server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+  add_header Cache-Control no-cache;
+  add_header Cache-Control must-revalidate;
+
+	root /var/www/html;
+	index index.html
+
+	server_name _;
+
+  location / {
+		try_files $uri @prerender;
+	}
+
+  location /healthcheck {
+    return 200;
+  }
+
+	location @prerender {
+		#proxy_set_header X-Prerender-Token YOUR_TOKEN;
+
+		set $prerender 0;
+		if ($http_user_agent ~* "WhatsApp|baiduspider|twitterbot|facebookexternalhit|rogerbot|linkedinbot|embedly|quora link preview|showyoubot|outbrain|pinterest|slackbot|vkShare|W3C_Validator") {
+			set $prerender 1;
+		}
+		if ($args ~ "_escaped_fragment_") {
+			set $prerender 1;
+		}
+		if ($http_user_agent ~ "Prerender") {
+			set $prerender 0;
+		}
+		if ($uri ~* "\.(js|css|xml|less|png|jpg|jpeg|gif|pdf|doc|txt|ico|rss|zip|mp3|rar|exe|wmv|doc|avi|ppt|mpg|mpeg|tif|wav|mov|psd|ai|xls|mp4|m4a|swf|dat|dmg|iso|flv|m4v|torrent|ttf|woff|svg|eot)") {
+			set $prerender 0;
+		}
+
+		#resolve using Google's DNS server to force DNS resolution and prevent caching of IPs
+		resolver 8.8.8.8;
+
+    if ($http_x_forwarded_proto != 'https') {
+      rewrite ^ https://$host$request_uri? last;
+    }
+
+		if ($prerender = 1) {
+
+			#setting prerender as a variable forces DNS resolution since nginx caches IPs and doesnt play well with load balancing
+			set $prerender "prerender:3000";
+			rewrite .* /https://$host$request_uri? break;
+			proxy_pass http://prerenderserver;
+		}
+
+		if ($prerender = 0) {
+			rewrite .* /index.html break;
+		}
+	}
+}

@@ -1,0 +1,211 @@
+@import "styles/Variables";
+
+.withHeader {
+    margin-top: 6px;
+}
+
+.notHeader {
+    margin-top: 18px;
+}
+
+.box-option {
+    float: left;
+    position: relative;
+    text-align: center;
+    margin-right: 15px;
+
+    &.quantity {
+        width: 65px;
+    }
+}
+
+.background-option {
+    background: $gallery;
+    border: 1px solid $gallery;
+    box-shadow: 0 2px 4px 0 rgba(196, 196, 196, 0.50);
+    border-radius: 5px;
+    margin-right: 10px;
+    padding: 10px 5px 10px 5px;
+    width: 100%;
+    position: relative;
+    color: $emperor;
+
+    &.is-color {
+        font-size: 0;
+        height: 40px;
+        cursor: pointer;
+
+        &:before {
+            content: '';
+            width: 16px;
+            height: 16px;
+            display: block;
+            border-radius: 100%;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            border: 1px solid $gallery;
+            margin-left: -10px;
+            background-color: #eee;
+        }
+    }
+
+    &[data-cor="preto"]:before { background: $black; }
+    &[data-cor="branco"]:before { background: $white; }
+    &[data-cor="jeans"]:before { background: #1560bd; }
+    &[data-cor="cinza"]:before { background: #808080; }
+    &[data-cor="azul"]:before { background: #1e90ff; }
+    &[data-cor="azul-claro"]:before { background: #00ffff; }
+    &[data-cor="azul-escuro"]:before { background: #00008d; }
+    &[data-cor="vermelho"]:before { background: #b22222; }
+    &[data-cor="bordo"]:before { background: #800000; }
+    &[data-cor="verde"]:before { background: #008000; }
+    &[data-cor="verde-claro"]:before { background: #00FF7F; }
+    &[data-cor="verde-escuro"]:before { background: #006400; }
+    &[data-cor="lilas"]:before { background: #ba55d3; }
+    &[data-cor="bege"]:before { background: #dev887; }
+    &[data-cor="rosa"]:before { background: #ffb6c1; }
+    &[data-cor="azul-médio"]:before,
+    &[data-cor="azul-medio"]:before { background: #0085ca; }
+    &[data-cor="grafite"]:before { background: #868582; }
+    &[data-cor="amarelo"]:before { background: #ffe400; }
+    &[data-cor="turquesa"]:before { background: #0089a0; }
+    &[data-cor="carmim"]:before { background: #b13446; }
+    &[data-cor="purpura"]:before { background: #ad28ab; }
+    &[data-cor="roxo"]:before { background: #541573; }
+    &[data-cor="marrom"]:before { background: #6a4d3b; }
+    &[data-cor="laranja"]:before { background: #f97f09; }
+    &[data-cor="azul-marinho"]:before { background: #232840; }
+    &[data-cor="pink"]:before { background: #eb0052; }
+}
+
+.box-option-title {
+    letter-spacing: 0.11px;
+    color: $emperor;
+    font-size: 11px;
+    font-weight: 400;
+}
+
+
+/* SELECT */
+
+.box-option-dropdown {
+    opacity: 0;
+    cursor: pointer;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 40px;
+    width: 100%;
+    display: none;
+}
+
+/* COR */
+
+.box-option-color-dropdown {
+    display: none;
+    position: absolute;
+    left: -1px;
+    top: 9px;
+    width: calc(100% - 19px);
+    background: $white;
+    margin-top: 9px;
+    overflow: hidden;
+    height: auto;
+    border: 1px solid $gallery;
+    border-radius: 5px 0px 5px 5px;
+    z-index: 0;
+
+    &.visible {
+        display: block;
+        z-index: 99;
+    }
+}
+
+.box-option-color-item {
+    display: block;
+    height: 40px;
+    width: 100%;
+    border: 0;
+    background: $white;
+    position: relative;
+    font-size: 0;
+    text-indent: -9999px;
+    overflow: hidden;
+    cursor: pointer;
+
+    &:hover {
+        background: $gallery;
+    }
+
+    &:after {
+        content: '';
+        width: 16px;
+        height: 16px;
+        display: block;
+        border-radius: 100%;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        border: 1px solid $gallery;
+    }
+
+    &[data-cor="preto"]:after { background: $black; }
+    &[data-cor="branco"]:after { background: $white; }
+    &[data-cor="jeans"]:after { background: #1560bd; }
+    &[data-cor="cinza"]:after { background: #808080; }
+    &[data-cor="azul"]:after { background: #1e90ff; }
+    &[data-cor="azul-claro"]:after { background: #00ffff; }
+    &[data-cor="azul-escuro"]:after { background: #00008d; }
+    &[data-cor="vermelho"]:after { background: #b22222; }
+    &[data-cor="bordo"]:after { background: #800000; }
+    &[data-cor="verde"]:after { background: #008000; }
+    &[data-cor="verde-claro"]:after { background: #00FF7F; }
+    &[data-cor="verde-escuro"]:after { background: #006400; }
+    &[data-cor="lilas"]:after { background: #ba55d3; }
+    &[data-cor="bege"]:after { background: #dev887; }
+    &[data-cor="rosa"]:after { background: #ffb6c1; }
+    &[data-cor="azul-médio"]:after,
+    &[data-cor="azul-medio"]:after { background: #0085ca; }
+    &[data-cor="grafite"]:after { background: #868582; }
+    &[data-cor="amarelo"]:after { background: #ffe400; }
+    &[data-cor="turquesa"]:after { background: #0089a0; }
+    &[data-cor="carmim"]:after { background: #b13446; }
+    &[data-cor="purpura"]:after { background: #ad28ab; }
+    &[data-cor="roxo"]:after { background: #541573; }
+    &[data-cor="marrom"]:after { background: #6a4d3b; }
+    &[data-cor="laranja"]:after { background: #f97f09; }
+    &[data-cor="azul-marinho"]:after { background: #232840; }
+    &[data-cor="pink"]:after { background: #eb0052; }
+}
+
+
+/* Modificações para opção com interação */
+
+.box-option.is-interactive {
+
+    .background-option {
+        padding: 10px 20px 10px 0;
+        background: $white;
+
+        &:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 20px;
+            height: 100%;
+            display: block;
+            border-left: 1px solid $gallery;
+            @mixin retina ../../assets/imgs/ico-angle-down-gray;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+    }
+
+    .box-option-dropdown {
+        display: block;
+    }
+}

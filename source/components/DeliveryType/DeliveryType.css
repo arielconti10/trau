@@ -1,0 +1,206 @@
+@import "styles/Variables";
+@import "styles/Mixins.css";
+
+$ico-seller-path: ../../assets/imgs/ico-seller;
+$ico-seller: $(ico-seller-path).png;
+
+$ico-delivery-path: ../../assets/imgs/ico-delivery;
+$ico-delivery: $(ico-delivery-path).png;
+
+$ico-seller-large-path: ../../assets/imgs/ico-seller-large;
+$ico-seller-large: $(ico-seller-large-path).png;
+
+$ico-delivery-large-path: ../../assets/imgs/ico-delivery-large;
+$ico-delivery-large: $(ico-delivery-large-path).png;
+
+.info-title {
+  color: $emperor;
+  font-size: 16px;
+  font-weight: 100;
+  line-height: 1;
+  margin: 10px 0;
+}
+
+.delivery-type-wrapper, .delivery-type-wrapper-reseted {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  margin: 10px 0;
+}
+
+.delivery-type-wrapper-reseted {
+  margin: 0;
+}
+
+a.delivery-type-wrapper {
+  text-decoration: none !important;
+  cursor: default;
+}
+
+.delivery-type-content, .delivery-type-value {
+  display: table-cell;
+  vertical-align: middle;
+  line-height: 17px;
+
+  @media $sm-and-below {
+    display: block;
+    text-align: left !important;
+  }
+}
+
+.delivery-type-content {
+  padding-left: 55px;
+  line-height: 1.3;
+}
+
+.delivery-type-value {
+  color: $mountain-meadow;
+  font-size: 14px;
+  text-align: right;
+}
+
+.delivery-type-value-column {
+  width: 20%;
+}
+
+.delivery-type-label {
+  font-size: 14px;
+  color: $emperor;
+
+  span {
+    white-space: nowrap;
+  }
+}
+
+.delivery-type-label-detail {
+  font-size: 12px;
+  color: #9B9B9B;
+  color: $emperor;
+}
+
+.delivery-type-seller {
+  @mixin retina $ico-seller-path;
+  background-size: width($ico-seller) auto;
+  background-repeat: no-repeat;
+  background-position: left center;
+}
+
+.delivery-type-lua {
+  @mixin retina $ico-delivery-path;
+  background-size: width($ico-delivery) auto;
+  background-repeat: no-repeat;
+  background-position: left center;
+}
+
+.delivery-type-check-wrapper {
+  display: table-cell;
+  vertical-align: middle;
+  width: 60px;
+}
+
+.delivery-type-check {
+  width: 38px;
+  height: 38px;
+  border: 2px solid $mountain-meadow;
+  border-radius: 50%;
+  position: relative;
+
+  &::after {
+    content: '';
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    background-color: $mountain-meadow;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: -12px;
+    margin-left: -12px;
+    display: none;
+  }
+}
+
+.delivery-type-wrapper-custom {
+  border: 1px solid $gallery;
+  background: $white;
+  box-shadow: 0 2px 4px 0 rgba(196, 196, 196, 0.50);
+  border-radius: 8px;
+
+  .delivery-type-label {
+    font-size: 18px;
+  }
+
+  a {
+    padding: 22px;
+    margin: 0;
+    cursor: pointer;
+  }
+
+  .delivery-type-label-detail {
+    font-size: 14px;
+  }
+
+  .delivery-type-value {
+    color: $gigas;
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  .delivery-type-content {
+    @media $sm-and-below {
+      display: inline-block;
+    }
+  }
+
+  .delivery-type-value {
+    @media $sm-and-below {
+      display: block;
+      text-align: left;
+      margin-top: 10px;
+      margin-left: 54px;
+      font-size: 16px;
+      width: auto;
+    }
+  }
+
+  .delivery-type-label {
+    @media $sm-and-below {
+      font-size: 16px;
+    }
+  }
+
+}
+
+.delivery-type-wrapper-custom-active {
+  border: 1px solid $mountain-meadow;
+
+  .delivery-type-check::after {
+    display: block;
+  }
+}
+
+.delivery-type-large-style {
+  .delivery-type-label {
+    font-size: 16px;
+    font-weight: 400;
+  }
+
+  .delivery-type-content {
+    padding: 10px 0 10px 65px;
+  }
+
+  .delivery-type-seller {
+    @mixin retina $ico-seller-large-path;
+    background-size: width($ico-seller-large) auto;
+    background-repeat: no-repeat;
+    background-position: left center;
+  }
+
+  .delivery-type-lua {
+    @mixin retina $ico-delivery-large-path;
+    background-size: width($ico-delivery-large) auto;
+    background-repeat: no-repeat;
+    background-position: left center;
+  }
+
+}

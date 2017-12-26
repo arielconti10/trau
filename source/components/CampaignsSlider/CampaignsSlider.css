@@ -1,0 +1,138 @@
+@import "styles/Variables";
+@import "styles/Mixins.css";
+
+/*
+ * SUPORTE
+ */
+
+.hide-slider {
+  display: none !important;
+}
+
+.slide {
+  position: relative;
+  padding: 0 10px;
+}
+
+.slider {
+  position: relative;
+  max-width: 1024px;
+  margin: 0 auto;
+  overflow: visible !important;
+}
+
+.campaign-block-link {
+  text-decoration: none;
+  display: block;
+}
+
+.campaign-slide-content-wrapper {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 2;
+}
+
+
+/*
+ * IMAGEM / IMAGE
+ */
+
+.campaign-image-wrapper {
+  overflow: hidden;
+  border-radius: 5px;
+  position: relative;
+}
+
+.campaign-slider-image {
+  z-index: 0;
+  border-radius: 5px;
+}
+
+.campaign-image-wrapper:before {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-image: linear-gradient(0deg, rgba(0,0,0,0.00) 8%, rgba(0,0,0,0.50) 90%);
+  transform: rotate(180deg);
+}
+
+/*
+ * CONTEÚDO / CONTENT
+ */
+
+.campaign-type {
+  text-transform: uppercase;
+  font-size: 11px;
+  line-height: 1;
+  margin-bottom: 10px;
+  letter-spacing: .15em;
+  font-weight: bold;
+  display: block;
+  color: $white;
+}
+
+.campaign-name {
+  font-size: 36px;
+  font-weight: bold;
+  color: $white;
+  text-decoration: none;
+  margin: 0 0 30px;
+  display: block;
+  z-index: 1;
+  width: 100%;
+  padding: 0 40px;
+  line-height: 32px;
+}
+
+.campaign-call-to-action {
+  font-size: 14px;
+  border: 2px solid $white;
+  color: $white;
+  font-weight: bold;
+  display: block;
+  border-radius: 25px;
+  width: 130px;
+  text-align: center;
+  padding: 6px 0;
+  margin: 20px auto 0;
+}
+
+/*
+ * THUMBNAILS DE PRODUTO
+ */
+
+.campaign-product-thumbnail-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.campaign-product-thumbnail-wrapper {
+  overflow: hidden;
+  border-radius: 3px;
+  margin: 0 3px;
+  box-shadow: rgba(0, 0, 0, .5) 0 5px 10px 0;
+}
+
+.campaign-product-thumbnail {
+  width: 68px;
+  height: 68px;
+}
+
+@media $tn-only {
+
+  .campaign-product-thumbnail {
+    width: 60px;
+    height: 60px;
+  }
+}

@@ -1,0 +1,55 @@
+@import "styles/Variables";
+@import "styles/Mixins.css";
+
+.wrapper {
+  padding: 0 30px;
+
+  @media $tn-only {
+    padding: 0;
+  }
+}
+
+.input {
+  width: calc(100% - 180px);
+  height: 50px;
+  padding: 12px 20px;
+
+  text-align: left;
+  letter-spacing: -0.17px;
+
+  color: $victoria;
+  border: 1px solid $victoria;
+  border-radius: 5px;
+  outline: none;
+  background: $white;
+  font-weight: 400;
+  box-shadow: 0 2px 4px 0 rgba(196, 196, 196, 0.50);
+
+  font-family: $lato;
+  font-size: 1em;
+}
+
+.bt-calc {
+  margin: 0 auto 0 10px;
+  padding: 16px 55px;
+  display: inline-block;
+  cursor: pointer;
+  letter-spacing: -0.17px;
+
+  color: $white;
+  border: 1px solid $gallery;
+  border-radius: 5px;
+  outline: none;
+  background: $victoria;
+  box-shadow: 0 2px 4px 0 rgba(196, 196, 196, 0.50);
+
+  font-family: $lato;
+  font-size: 1em;
+  font-weight: 300;
+
+  transition: background 300ms;
+
+  &:hover {
+    background-color: $mountain-meadow;
+  }
+}

@@ -1,0 +1,163 @@
+@import "styles/Variables";
+@import "styles/Mixins.css";
+
+$close-path: ../../assets/imgs/close;
+$close: $(close-path).png;
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+
+  height: 95%;
+
+  font-family: $lato;
+  font-weight: 700;
+
+  justify-content: center;
+}
+
+.search-bar {
+  display: block;
+
+  height: 50px;
+
+  border: 1px solid #ddd;
+  border-radius: 5px;
+
+  &:hover {
+    border-color: rgba(72,60,142,0.30);
+  }
+}
+
+.input {
+  box-sizing: border-box;
+  width: calc(100% - 50px);
+  padding: 14px 15px;
+  color: $gigas;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: $lato;
+  font-weight: 400;
+}
+
+.input::placeholder {
+  display: none;
+
+  color: $gigas-light;
+
+  font-size: 14px;
+}
+
+.submit {
+  position: relative;
+
+  display: block;
+  float: right;
+
+  box-sizing: border-box;
+  width: 50px;
+  height: 100%;
+
+  cursor: pointer;
+  text-indent: -9999px;
+
+  border: none;
+  outline: none;
+  background: transparent no-repeat center;
+
+  @mixin retina ../../assets/imgs/magnifier;
+}
+
+.close {
+  display: none;
+  float: right;
+
+  width: 50px;
+  height: 50px;
+
+  border: 0;
+  outline: none;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center center;
+  @mixin retina $close-path;
+}
+
+/* Filter mobile style */
+.container {
+  display: none;
+}
+
+.tags-wrapper {
+  display: none;
+}
+
+@media $md-and-below {
+  .tags-wrapper {
+    position: absolute;
+    top: 0px;
+    left: 50px;
+    overflow-y: hidden;
+    height: 46px;
+    line-height: 47px;
+    left: 3px;
+    padding-left: 33px;
+    white-space: nowrap;
+    display: block;
+    width: 10px;
+    z-index: 200;
+  }
+  
+  .scrolled-tags-wrapper {
+    display: block;
+    max-width: calc(100% - 110px);
+    width: auto;
+  }
+
+  .hide-tags-wrapper {
+    display: none;
+  }
+
+  .tags-space {
+    white-space: nowrap;
+    display: inline-block;
+  }
+}
+
+@media $sm-and-below {
+  .tags-wrapper {
+    left: 37px;
+    padding-left: 24px;
+  }
+}
+
+@media $sm-and-below {
+
+  .search-bar:not(.visible) {
+    border-color: transparent;
+    box-shadow: none;
+
+    .input {
+      display: none;
+    }
+  }
+
+  .submit {
+    float: left;
+  }
+
+  .search-bar.visible {
+    width: 100%;
+    border: 0;
+    border-radius: 0;
+
+    .input {
+      width: calc(100% - 100px);
+    }
+
+    .close {
+      display: block;
+    }
+  }
+}

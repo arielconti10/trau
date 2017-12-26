@@ -1,0 +1,177 @@
+@import "../../assets/styles/Variables";
+@import "../../assets/styles/Mixins.css";
+.input {
+    width: 310px;
+    padding: 12px 20px;
+    text-align: left;
+    background: $white;
+    border: 1px solid $gallery;
+    box-shadow: 0 2px 4px 0 rgba(196, 196, 196, 0.50);
+    border-radius: 5px;
+    font-size: 14px;
+    color: $gigas;
+    letter-spacing: -0.17px;
+    font-family: $lato;
+    margin-bottom: 20px;
+}
+
+.input::placeholder {
+    display: none;
+    color: $gigas;
+    font-size: 14px;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.text-center {
+    text-align: center;
+    color: #D8D8D8;
+}
+
+.btn-continue {
+    padding: 16px 55px;
+    background: $victoria;
+    border: 1px solid $gallery;
+    box-shadow: 0 2px 4px 0 rgba(196, 196, 196, 0.50);
+    border-radius: 5px;
+    font-size: 16px;
+    color: $white;
+    letter-spacing: -0.17px;
+    font-family: $lato;
+    margin-right: 16px;
+
+    &:hover {
+        background-color: $mountain-meadow;
+    }
+}
+
+.register-panel {
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+    margin: 30px auto;
+}
+
+.text-footer {
+    display: table;
+    font-size: 16px;
+    color: $dove-gray;
+    letter-spacing: -0.17px;
+    text-align: center;
+    width: 310px;
+    font-family: $lato;
+}
+
+.loginsplitter {
+    width: 310px;
+    margin: 30px auto;
+    display: block;
+    position: relative;
+}
+
+.loginsplitter:before,
+.loginsplitter:after {
+    content: '';
+    background: $gigas;
+    height: 1px;
+    width: 125px;
+    position: absolute;
+    top: 50%;
+}
+
+.loginsplitter:before {
+    left: 0;
+}
+
+.loginsplitter:after {
+    right: 0;
+}
+
+.btn-back {
+    margin-bottom: 60px;
+    font-size: 15px;
+    color: $butterfly-bush;
+    letter-spacing: -0.17px;
+}
+
+.errors {
+  display: block;
+  width: 100%;
+  text-align: center;
+  color: $red;
+  font-size: 15px;
+  padding-bottom: 10px;
+}
+
+$arrow-back-path: ../../assets/imgs/arrow-back;
+$arrow-back: $(arrow-back-path).png;
+$talk-path: ../../assets/imgs/talk;
+$talk: $(talk-path).png;
+.back {
+    position: relative;
+    display: block;
+    margin-bottom: 50px;
+    padding-left: calc(width($arrow-back) + 10px);
+    color: $butterfly-bush;
+    border: none;
+    background: none;
+    font-family: $lato;
+    font-size: .9em;
+    &:hover {
+        text-decoration: none;
+        color: $mountain-meadow;
+    }
+    &::before {
+        position: absolute;
+        left: 0;
+        display: block;
+        width: width($arrow-back);
+        height: height($arrow-back);
+        content: '';
+        @mixin retina $arrow-back-path;
+    }
+}
+
+.box {
+    width: 320px;
+}
+
+.margin-left {
+    margin-left: 16px;
+}
+
+.facebookButtonSize {
+    width: 310px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 374px) {
+    .input {
+        width: 280px;
+    }
+    .loginsplitter {
+        width: 280px;
+        margin: 20px auto;
+    }
+    .back {
+        margin-bottom: 25px;
+    }
+    .btn-continue {
+        padding: 16px 44px;
+        margin-right: 8px;
+    }
+    .box {
+        width: 300px;
+    }
+    .margin-left {
+        margin-left: 5px;
+    }
+    .facebookButtonSize {
+        width: 280px;
+    }
+}

@@ -1,0 +1,7 @@
+@import "styles/Variables";
+
+@media $md-and-below {
+  .store-wrapper {
+    margin-top: 100px;
+  }
+}

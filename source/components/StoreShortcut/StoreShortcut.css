@@ -1,0 +1,188 @@
+@import "styles/Variables";
+@import "styles/Mixins";
+
+$close-path: ../../assets/imgs/close;
+$close: $(close-path).png;
+
+$ico-ios-send-path: ../../assets/imgs/ico-ios-send;
+$ico-ios-send: $(ico-ios-send-path).png;
+
+$ico-android-dots-path: ../../assets/imgs/ico-android-dots;
+$ico-android-dots: $(ico-android-dots-path).png;
+
+$ico-handy-arrow-path: ../../assets/imgs/ico-handy-arrow;
+$ico-handy-arrow: $(ico-handy-arrow-path).png;
+
+.modal-bubble {
+	position: fixed;
+	z-index: 99;
+	min-height: 90px;
+	font-size: 14px;
+	line-height: 140%;
+	padding-top: 15px;
+	filter: drop-shadow(0px 0px 2px $tundora);
+	visibility: hidden;
+	opacity: 0;
+	display: none;
+
+	&:before,
+	&:after {
+		content: '';
+		display: block;
+		position: absolute;
+	}
+
+	&.iphone,
+	&.ipad {
+		background: $white;
+		border-radius: 5px;
+		padding-left: 105px;
+
+		&:after {
+			width: 20px;
+			height: 20px;
+			left: 50%;
+			background: $white;
+		}
+	}
+
+	&.iphone {
+		bottom: 90px;
+		width: calc(100vw - 20px);
+		left: 10px;
+
+		&:after {
+			top: 100%;
+			transform: translate(-50%, -50%) rotate(-45deg);
+		}
+	}
+
+	&.ipad {
+		left: 20px;
+		top: 20px;
+		width: calc(100vw - 40px);
+
+		&:after {
+			bottom: 100%;
+			transform: translate(-50%, 50%) rotate(-45deg);
+		}
+
+		&:before {
+			width: width($ico-handy-arrow);
+			height: height($ico-handy-arrow);
+			@mixin retina $ico-handy-arrow-path;
+			right: 15px;
+			top: 20px;
+			transform: rotate(-20deg);
+		}
+	}
+
+	&.android {
+		padding-left: 115px;
+		width: 100%;
+		background: #fcfcfc;
+		top: 0;
+		left: 0;
+
+		&:after {
+			width: width($ico-handy-arrow);
+			height: height($ico-handy-arrow);
+			@mixin retina $ico-handy-arrow-path;
+			right: 15px;
+			top: 20px;
+			transform: rotate(-20deg);
+		}
+	}
+}
+
+.seller-avatar {
+	display: block;
+	width: 60px;
+	height: 60px;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+
+	&.iphone,
+	&.ipad {
+		border-radius: 5px;
+		left: 30px;
+	}
+
+	&.android {
+		border-radius: 100%;
+		left: 40px;
+	}
+}
+
+.modal-title {
+	color: $mountain-meadow;
+	font-weight: 400;
+	display: block;
+}
+
+.modal-list {
+	font-size: 13px;
+	line-height: 140%;
+	color: $emperor;
+	padding: 0;
+	margin: 0;
+	font-weight: 400;
+
+	li {
+		display: block;
+	}
+}
+
+.os-menu-icon {
+	display: inline-block;
+	vertical-align: middle;
+	margin-left: .5em;
+
+	&.iphone,
+	&.ipad {
+		width: width($ico-ios-send);
+		height: height($ico-ios-send);
+		@mixin retina $ico-ios-send-path;
+		background-repeat: no-repeat;
+		background-position: left center;
+	}
+
+	&.android {
+		width: width($ico-android-dots);
+		height: height($ico-android-dots);
+		@mixin retina $ico-android-dots-path;
+		background-repeat: no-repeat;
+		background-position: left center;
+	}
+}
+
+.close {
+	width: 30px;
+	height: 30px;
+	display: block;
+	position: absolute;
+	left: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	border: 0;
+	@mixin retina $close-path;
+	background-color: transparent;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+@media $ipad-pro {
+
+	.modal-bubble.active {
+
+		&.ipad,
+		&.iphone,
+		&.android {
+			display: block;
+			visibility: visible;
+			opacity: 1;
+			z-index: 100;
+		}
+	}
+}

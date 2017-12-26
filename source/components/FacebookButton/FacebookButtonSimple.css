@@ -1,0 +1,82 @@
+@import "styles/Variables";
+@import "styles/Mixins";
+
+$facebook-path: ../../assets/imgs/facebook;
+$facebook: $(facebook-path).png;
+
+:global {
+
+  .global-class-button-facebook {
+    cursor: pointer;
+    width: 100%;
+    padding: 20px 0 20px 70px;
+    opacity: 0;
+    min-height: 60px;
+  }
+}
+
+.position-text {
+  position: absolute;
+  margin-top: -10px;
+  margin-left: -50px;
+}
+
+.button-facebook {
+  cursor: pointer;
+  outline: none;
+  content: '';
+  width: 100%;
+  text-align: center;
+  border: 0;
+  border-radius: 6px;
+  background-color: $endeavour;
+  transition: background 300ms;
+
+  &:hover {
+    background-color: rgba($endeavour, .9);
+  }
+}
+
+.button-facebook:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 25%;
+  min-width: calc(width($facebook) + 30px);
+  height: 100%;
+  content: '';
+  border-right: 2px solid #004674;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: 100% auto;
+  @mixin retina $facebook-path;
+}
+
+.text-facebook {
+  letter-spacing: -0.021em;
+  color: $white;
+  font-family: $lato;
+  font-weight: 300;
+  font-size: 1.2em;
+}
+
+.btn-social {
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding: 30px;
+}
+
+.icon-facebook {
+  overflow: hidden;
+  width: 25px;
+  height: 22px;
+  white-space: nowrap;
+  text-indent: 100%;
+  background-repeat: no-repeat;
+  background-size: auto;
+  @mixin retina $facebook-path;
+}

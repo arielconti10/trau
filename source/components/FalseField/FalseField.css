@@ -1,0 +1,22 @@
+@import 'styles/Variables';
+
+.field {
+    height: 50px;
+    margin-bottom: 20px;
+    padding: 18px 20px 0;
+    letter-spacing: -0.17px;
+    color: $gigas;
+    border: 1px solid $gallery;
+    border-radius: 5px;
+    background: $white;
+    box-shadow: 0 2px 4px 0 rgba(196, 196, 196, 0.50);
+    font-size: .8em;
+    font-weight: 300;
+    display: block;
+    text-align: left;
+
+    &.disabled {
+        background: #fafafa;
+        cursor: not-allowed;
+    }
+}

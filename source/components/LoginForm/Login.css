@@ -1,0 +1,207 @@
+@import "styles/Variables";
+@import "styles/Mixins.css";
+
+$avatar-path: ../../assets/imgs/avatar;
+$avatar: $(avatar-path).png;
+
+.text-terms {
+  font-size: 16px;
+  color: $emperor;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.link-terms {
+  color: $gigas;
+}
+
+.input {
+  width: 100%;
+  height: 50px;
+  margin-bottom: 20px;
+  padding: 12px 20px;
+
+  text-align: left;
+  letter-spacing: -0.17px;
+
+  color: $gigas;
+  border: 1px solid $gallery;
+  border-radius: 5px;
+  outline: none;
+  background: $white;
+  box-shadow: 0 2px 4px 0 rgba(196, 196, 196, 0.50);
+
+  font-family: $lato;
+  font-size: .8em;
+  font-weight: 300;
+}
+
+.input::placeholder {
+  color: $gigas-light;
+}
+
+.btn-login, .btn-signup {
+  margin-right: 16px;
+  padding: 16px 55px;
+
+  cursor: pointer;
+  letter-spacing: -0.17px;
+
+  color: $white;
+  border: 1px solid $gallery;
+  border-radius: 5px;
+  outline: none;
+  background: $victoria;
+  box-shadow: 0 2px 4px 0 rgba(196, 196, 196, 0.50);
+
+  font-family: $lato;
+  font-size: 1em;
+  font-weight: 300;
+
+  transition: background 300ms;
+
+  &:hover {
+    background-color: $mountain-meadow;
+  }
+
+  @media $sm-and-below {
+    display: block;
+
+    margin: 0 auto;
+  }
+}
+
+.btn-password {
+  cursor: pointer;
+  letter-spacing: -0.17px;
+
+  color: $dove-gray;
+  border: 0px solid $white;
+  outline: none;
+  background: $white;
+  margin-right: 15px;
+  font-size: 1em;
+  font-weight: 300;
+
+  &:hover {
+    color: $mountain-meadow;
+  }
+
+  @media $sm-and-below {
+    display: block;
+
+    width: 100%;
+    margin: 20px 0;
+
+    text-align: center;
+  }
+}
+
+.btn-signup {
+  margin: 30px auto;
+}
+
+.login-panel {
+  margin: 30px auto;
+}
+
+.footer-login {
+  margin: 0 auto;
+  padding-top: 70px;
+}
+
+
+
+.text-footer {
+  position: relative;
+
+  display: block;
+
+  margin-top: 70px;
+
+  text-align: center;
+  text-indent: calc(width($avatar) + 10px);
+  letter-spacing: -0.017em;
+
+  color: $dove-gray;
+
+  font-family: $lato;
+  font-size: 1em;
+  font-weight: 300;
+
+  &:hover {
+    color: $mountain-meadow;
+  }
+
+  &::before {
+    position: absolute;
+    top: -10px;
+
+    display: inline-block;
+
+    width: width($avatar);
+    height: height($avatar);
+    margin-left: calc(-1 * (width($avatar) + 10px));
+    padding: 12px 0px;
+
+    content: '';
+    white-space: nowrap;
+    text-indent: 100%;
+
+    background-repeat: no-repeat;
+    background-size: auto;
+    @mixin retina $avatar-path;
+  }
+}
+
+.splitter {
+  position: relative;
+
+  display: block;
+
+  margin: 35px 0;
+
+  border: none;
+  border-bottom: 1px solid $gallery;
+
+  &::after {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+
+    display: block;
+
+    width: 100px;
+    height: 25px;
+    margin-left: -50px;
+
+    content: 'OU';
+    text-align: center;
+
+    color: $gigas-light;
+    background-color: $white;
+
+    line-height: 25px;
+  }
+}
+
+.errors {
+  display: block;
+  width: 100%;
+  text-align: center;
+  color: $red;
+  font-weight: 700;
+}
+
+@media (max-width: 767px) {
+
+  .wrapper {
+    margin-top: 100px;
+  }
+}
+
+@media (max-width: 375px) {
+  .wrapper {
+    width: 100%;
+  }
+}

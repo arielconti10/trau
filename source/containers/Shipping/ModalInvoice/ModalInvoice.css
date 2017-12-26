@@ -1,0 +1,140 @@
+@import "styles/Variables";
+@import "styles/Mixins.css";
+
+$icon-ok-path: ../../../assets/imgs/icon-ok;
+$icon-ok: $(icon-ok-path).png;
+
+.invoice {}
+
+.invoice-modal-inner-wrapper {
+  max-height: calc(100vh - 200px);
+  overflow-y: auto;
+  margin-bottom: 15px;
+}
+
+.invoice-ready {
+  text-align: center;
+  position: relative;
+
+  &::before {
+    content: '';
+    display: block;
+    @mixin retina $icon-ok-path;
+    background-size: width($icon-ok) auto;
+    background-repeat: no-repeat;
+    background-position: left center;
+    width: width($icon-ok);
+    height: width($icon-ok);
+    margin: 0 auto 20px;
+  }
+}
+
+.invoice-warn {
+  text-align: center;
+  margin: 30px 0;
+
+  em {
+    font-style: normal;
+    color: $gigas;
+  }
+}
+
+.invoice-message {
+  text-align: center;
+  border-top: 1px solid #979797;
+  border-bottom: 1px solid #979797;
+  padding: 25px 0;
+  margin: 25px 0;
+  line-height: 1.2;
+
+  em {
+    font-style: normal;
+    color: $gigas;
+  }
+}
+
+.invoice-status-wrapper {
+  display: block;
+  line-height: 1.2;
+
+  &::after  {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+
+.invoice-status {
+  text-align: center;
+  line-height: 1.2;
+  &:first-child {
+    text-align: left;
+  }
+  em {
+    font-style: normal;
+    color: $gigas;
+  }
+}
+
+.invoice-code {
+  text-align: center;
+  margin: 34px 0;
+  line-height: 1.2;
+
+  em {
+    font-style: normal;
+    color: $gigas;
+  }
+}
+
+.btn-gray {
+  background-color: $emperor;
+  margin-right: 10px;
+}
+
+.invoice-buttons {
+  text-align: center;
+  margin: 35px 0;
+}
+
+.btn-invoice {
+  width: 240px;
+  margin-top: 0;
+  display: inline-block;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.btn-default {
+  margin: 25px auto 0;
+  padding: 16px 55px;
+  display: block;
+  cursor: pointer;
+  letter-spacing: -0.17px;
+  color: $white;
+  border: 1px solid $gallery;
+  border-radius: 5px;
+  outline: none;
+  background: $victoria;
+  box-shadow: 0 2px 4px 0 rgba(196, 196, 196, 0.50);
+  font-family: $lato;
+  font-size: 1em;
+  font-weight: 300;
+  transition: background 300ms;
+  text-decoration: none !important;
+
+  &:focus,
+  &:hover {
+    background: $mountain-meadow;
+    color: $white;
+  }
+
+  &:disabled {
+    opacity: .4;
+    cursor: default;
+
+    &:hover {
+      background-color: $victoria;
+    }
+  }
+}

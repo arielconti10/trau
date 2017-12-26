@@ -1,0 +1,50 @@
+@import "styles/Mixins.css";
+@import 'styles/Variables';
+
+.cart-footer {
+    @mixin clearfix;
+}
+
+.finish-wrapper {
+    display: block;
+    float: right;
+}
+
+.payment-type {
+    padding: 20px;
+    font-size: .8em;
+    float: left;
+    color: $butterfly-bush;
+}
+
+.payment-type-title {
+    font-family: $lato;
+    font-weight: bold;
+}
+
+.finish-button {
+    float: right;
+}
+
+.keep-buying {
+    float: left;
+}
+
+@media (max-width: 767px) {
+    .finish-wrapper {
+        float: none;
+    }
+    .payment-type {
+        margin-bottom: 25px;
+        float: none;
+        display: block;
+        text-align: center;
+    }
+    .finish-button {
+        float: none;
+    }
+    .keep-buying {
+        float: none;
+        text-align: center;
+    }
+}

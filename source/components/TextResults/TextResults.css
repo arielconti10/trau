@@ -1,0 +1,94 @@
+@import "styles/Variables";
+$close-icon-path: ../../assets/imgs/close-purple;
+$close-icon: $(close-icon-path).png;
+
+.text-results {
+  display: none;
+  text-align: center;
+  margin: 20px auto;
+  line-height: 22px;
+}
+
+@media (min-width: 992px) {
+  .text-results {
+    width: 970px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .text-results {
+    width: 1170px;
+  }
+}
+
+@media $md-and-below {
+  .text-results {
+    max-width: 100%;
+    margin: 142px auto 20px;
+  }
+}
+
+.text-results-show {
+  display: block;
+}
+
+.title-results {
+  display: inline-block;
+  vertical-align: top;
+  line-height: 33px;
+}
+
+.tags-results {
+  display: inline-block;
+  max-width: 800px;
+  line-height: 35px;
+}
+
+@media (min-width: 992px) {
+  .tags-results {
+    max-width: 600px;
+  }
+}
+
+@media $md-and-below {
+  .tags-results {
+    display: inline-block;
+    max-width: 100%;
+  }
+}
+
+.tags-clear {
+  display: inline-block;
+  vertical-align: top;
+  line-height: 35px;
+  margin-right: 12px;
+  color: $gigas;
+  border: 0;
+  background-color: transparent;
+  float: right;
+  font-size: 12px;
+  padding-right: 20px;
+  cursor: pointer;
+  background-color: transparent;
+  background-position: right center;
+  background-repeat: no-repeat;
+  background-size: auto;
+  @mixin retina $close-icon-path;
+
+  &:hover {
+    color: $gigas-light;
+  }
+}
+
+@media $md-and-below {
+  .tags-clear {
+    display: none;
+  }
+}
+
+
+@media $md-and-below {
+  .title-results {
+    display: block;
+  }
+}

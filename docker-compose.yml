@@ -1,0 +1,20 @@
+version: "2"
+
+services:
+  taurus:
+    image: luadevspace/taurus:latest
+    container_name: taurus.dev.luanet
+    ports:
+      - "80:80"
+    links:
+      - prerender:prerender
+
+  prerender:
+    image: luadevspace/prerender:latest
+    container_name: prerender.dev.luanet
+    external_links:
+      - taurus:testemagento29.lua.net
+    networks:
+      default:
+        aliases:
+          - prerender

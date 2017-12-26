@@ -1,0 +1,43 @@
+@import "styles/Variables";
+
+.wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba($white, 0.4);
+
+  &.wrapper--opaque {
+    background-color: $white;
+  }
+  &.wrapper--ontop {
+    z-index: 9998;
+  }
+}
+
+.loading {
+  display: block;
+  text-align: center;
+  color: $gigas;
+}
+
+.spinner {
+  top: 50%;
+  left: 50%;
+
+  margin-top: -45px;
+  margin-left: -45px;
+}
+
+:global .sk-double-bounce {
+  width: 90px;
+  height: 90px;
+
+  .sk-double-bounce1, .sk-double-bounce2 {
+    background-color: $gigas;
+  }
+}

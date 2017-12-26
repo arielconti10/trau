@@ -1,0 +1,170 @@
+@import "styles/Variables";
+@import "styles/Mixins.css";
+
+$talk-path: ../../assets/imgs/talk;
+$talk: $(talk-path).png;
+
+.wrapper {
+  margin-top: 50px;
+}
+
+.showBackButtonWrapper {
+  position: relative;
+  bottom: 40px;
+}
+
+.product-slider {
+  margin-bottom: 60px;
+}
+
+.types-div {
+  border: 0;
+  border-top: 1px solid #DEDEDE;
+}
+
+.title {
+  margin: 0;
+  margin-bottom: 15px;
+
+  letter-spacing: -.01em;
+
+  color: $emperor;
+
+  font-family: $lato;
+  font-weight: 400;
+  font-size: 2.3em;
+}
+
+.brand {
+  display: block;
+
+  margin-bottom: 15px;
+
+  color: $emperor;
+
+  font-size: 1.2em;
+
+
+}
+
+.description-grid {
+  max-width: 100%;
+  margin: 0;
+  margin-top: 30px;
+}
+
+.description-grid-column {
+  /* */
+}
+
+.buy-btn {
+  @media (max-width: 767px) {
+    margin-bottom: 25px;
+    max-width: 200px;
+  }
+}
+
+.shipping {
+  position: relative;
+
+  display: block;
+
+  padding-left: calc(width($talk) + 15px);
+
+  &::before {
+    position: absolute;
+    left: 0;
+
+    display: block;
+
+    width: width($talk);
+    height: height($talk);
+
+    content: '';
+    @mixin retina $talk-path;
+  }
+}
+
+.shipping-title {
+  display: block;
+
+  text-transform: uppercase;
+
+  color: $mountain-meadow;
+
+  font-family: $lato;
+  font-weight: bold;
+  font-size: .8em;
+}
+
+.shipping-text {
+  color: $emperor;
+  font-size: .75em;
+  font-weight: 400;
+}
+
+.shipping-link {
+  text-decoration: underline;
+  cursor: pointer;
+
+  color: $emperor;
+
+  font-family: $lato;
+  font-weight: bold;
+  border: 0px;
+  background-color: $white;
+
+  &:hover {
+    color: $mountain-meadow;
+  }
+}
+
+.info {
+  display: block;
+
+  margin-top: 35px;
+}
+
+.info-title {
+  color: $emperor;
+  font-size: 16px;
+  font-weight: 100;
+  line-height: 1;
+  margin: 10px 0;
+}
+
+.info-text {
+  color: $emperor;
+  font-size: 12px;
+  line-height: 140%;
+}
+
+.info-text-error {
+  color: red;
+  font-size: 13px;
+  line-height: 140%;
+  padding: 20px 35px;
+}
+
+.price-wrapper {
+  margin-top: 45px;
+}
+
+
+@media $md-and-below {
+
+  .wrapper {
+    margin-top: 90px;
+  }
+}
+
+@media (max-width: 767px) {
+  .title {
+    margin-bottom: 5px;
+    font-size: 2em;
+  }
+
+  .brand {
+    font-size: 1em;
+  }
+}

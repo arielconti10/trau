@@ -1,0 +1,68 @@
+@import "styles/Variables.css";
+
+.center {
+  display: block;
+
+  max-width: 430px;
+  margin-top: 15%;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 20px;
+
+  border: 1px solid rgb(204, 204, 204);
+  border-radius: 8px;
+  outline: none;
+  background: rgb(255, 255, 255);
+
+  &.small {
+    position: absolute;
+    top: 50vh;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    margin-top: 0;
+  }
+
+  &.is-contact {
+
+  }
+}
+
+.text-close {
+  display: block;
+  cursor: pointer;
+  margin-right: auto;
+  margin-bottom: 10px;
+  margin-left: auto;
+  font-weight: 300;
+  text-align: center;
+  letter-spacing: -0.17px;
+  color: $shamrock;
+  border: 0px;
+  outline: none;
+  background: transparent;
+  font-size: 16px;
+
+  &:hover {
+    color: $shamrock;
+  }
+}
+
+@media $xs-and-below {
+
+  .center {
+    max-width: calc(100vw - 40px);
+  }
+}
+
+@media $tn-only {
+
+  .center {
+
+    &:not(.is-contact) {
+      width: calc(100vw - 20px);
+      max-height: calc(100vh - 110px);
+      margin-top: 20px;
+    }
+  }
+}
